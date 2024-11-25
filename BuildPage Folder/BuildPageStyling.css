@@ -3,6 +3,7 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 * {
   font-family: "Karla", serif;
@@ -11,7 +12,7 @@ html {
 .top {
   background-color: black;
   height: 65px;
-  width: 100vw;
+  width: 100%;
   justify-content: center;
 }
 
@@ -24,7 +25,7 @@ html {
   align-items: center;
 }
 
-i {
+#usericon {
   margin-right: 10px;
   font-size: xx-large;
 }
@@ -32,7 +33,7 @@ i {
 .navigation {
   background-color: #001d3d;
   height: 65px;
-  width: 100vw;
+  width: 100%;
   justify-content: center;
 }
 
@@ -58,7 +59,7 @@ i {
   padding-left: 30px;
 }
 
-img {
+.navContainer > img {
   margin-right: 7px;
   height: 20px;
   width: 20px;
@@ -66,7 +67,7 @@ img {
 
 footer {
   height: 400px;
-  width: 100vw;
+  width: 100%;
   background-color: #001d3d;
   color: white;
 }
@@ -75,12 +76,15 @@ footer {
   display: flex;
 }
 
+.footerLeft,
+.footerRight {
+  margin-top: 50px;
+}
+
 .footerLeft {
   display: flex;
   flex-direction: column;
   width: 50%;
-
-  margin-top: 50px;
 }
 
 .footerLeft > h1 {
@@ -97,14 +101,97 @@ footer {
 .footerRight {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  font-size: x-large;
-  margin-top: 50px;
+  width: 52%;
   justify-content: center;
 }
 
+.footerRight > div > p {
+  font-size: x-large;
+}
+
 .footerRight > div {
-  width: 50%;
-  margin: 5px auto;
+  width: 70%;
   display: flex;
+
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.footerRight > div > img {
+  height: 30px;
+  width: 30px;
+}
+
+@media screen and (max-width: 430px) {
+  .footerRight > div > p {
+    font-size: 10px;
+    flex-wrap: wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .footerLeft > div {
+    width: 50%;
+    margin: auto;
+    width: 50%;
+    font-size: 10px;
+    padding: 3px;
+  }
+
+  .navContainer > div {
+    font-size: 12px;
+    padding: 3px;
+    height: 45px;
+  }
+  .navContainer > img {
+    padding: 9px;
+    height: 3px;
+    width: 3px;
+  }
+
+  .footerRight > div > img {
+    width: 10px;
+    height: 10px;
+  }
+
+  .footerRight {
+    width: 50%;
+  }
+
+  #usericon {
+    font-size: x-large;
+  }
+
+  .footerRight > div > img {
+    height: 20px;
+    width: 20px;
+  }
+
+  .footerLeft,
+  .footerRight {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 430px) and (max-width: 790px) {
+  .navContainer > div {
+    font-size: 15px;
+    padding: 9px;
+    height: 45px;
+  }
+
+  .footerRight > div > p {
+    font-size: 15px;
+  }
+
+  .footerLeft > div {
+    font-size: 11px;
+  }
+
+  .footerLeft > div {
+    width: 50%;
+    margin: auto;
+    width: 50%;
+    padding: 3px;
+  }
 }
