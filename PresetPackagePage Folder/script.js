@@ -38,3 +38,27 @@ document.getElementById('computer-category').addEventListener('change', function
       });
   }
 });
+
+document.addEventListener('DOMContentLoaded', function () { // When the page loads, run this function
+  const searchInput = document.querySelector('.search-bar input'); // Get the search input element
+  const products = document.querySelectorAll('.product'); // Get all the product elements
+
+  searchInput.addEventListener('input', function () { // When the search input changes, run this function
+      const searchTerm = searchInput.value.toLowerCase(); // Get the search input value and convert it to lowercase
+      products.forEach(product => { // Loop through each product
+          const productName = product.querySelector('.product-name').textContent.toLowerCase(); // Get the product name and convert it to lowercase
+          const productSpecs = product.querySelector('.product-specs').textContent.toLowerCase(); // Get the product specs and convert it to lowercase
+          if (productName.includes(searchTerm) || productSpecs.includes(searchTerm)) { // If the product name or specs includes the search term, show the product
+              product.style.display = 'block'; // Show the product
+          } else {
+              product.style.display = 'none'; // Hide the product
+          }
+      });
+  });
+});
+
+document.querySelector('.search-bar button').addEventListener('click', function() { // When the search button is clicked, run this function
+  const searchInput = document.querySelector('.search-bar input'); // Get the search input element
+  searchInput.value = ''; // Clear the search input
+  searchInput.dispatchEvent(new Event('input')); // Trigger the input event on the search input
+});
