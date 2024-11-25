@@ -19,7 +19,7 @@ body {
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    background-color: #0a163d;
+    background-color: #3B426E;
     color: white;
     padding: 10px 20px;
     border-bottom: 1px solid #333;
@@ -103,7 +103,7 @@ body {
 }
 
 .footer {
-    background-color: #0a163d;
+    background-color: #3B426E;
     color: white;
     padding: 30px 20px;
     text-align: left;
@@ -159,4 +159,100 @@ body {
     color: #b0b0b0;
     line-height: 1.5;
     font-size: 12px;
+}
+
+.search-banner {
+    background: #000814;
+    margin-top: 1%;
+    padding: 1%;
+    display: flex;
+    gap: 10px;
+}
+
+.search-banner input {
+    border-radius: 15px;
+    padding: 2px;
+    border: white;
+    padding-left: 5px;
+}
+
+.search-banner h1 {
+    color: white;
+    font-size: 16px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.search-banner input::placeholder {
+    color: black;
+    padding-left: 5px;
+}
+
+.search-bar {
+    position: relative;
+    display: inline-block;
+}
+
+.search-bar button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    border: none;
+    border-radius: 0 15px 15px 0;
+    cursor: pointer;
+}
+
+.filter select {
+    border-radius: 15px;
+    padding: 2px;
+    border: white;
+    padding-left: 5px;
+    margin-top: 2px;
+}
+
+.divider-left {
+    width: 2px;
+    height: 30px;
+    background-color: white;
+    margin: 0 3.25%;
+  }
+
+.divider-right {
+    width: 2px;
+    height: 30px;
+    background-color: white;
+    margin: 0 9.5%;
+  }
+
+  .socials a i {
+    color: white;
+    font-size: 24px;
+    margin-left: 33px;
+}
+
+.socials a {
+    text-decoration: none;
+  }
+
+.socials {
+    margin-left: 4.25%;
+}
+
+.country-selector {
+    display: flex;
+    gap: 10px;
+}
+
+.country-selector img {
+    width: 30px;
+    height: 20px;
+    margin-top: 5px;
+}
+
+.country-selector select {
+    background-color: #000814;
+    border: none;
+    color: white;
+    margin-bottom: 5px;
 }
