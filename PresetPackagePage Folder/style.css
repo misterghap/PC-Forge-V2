@@ -256,3 +256,26 @@ body {
     color: white;
     margin-bottom: 5px;
 }
+
+.page-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.page-links a {
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.page-links a:hover {
+    text-decoration: none;
+}
+
+
+#pc-photo {
+    height: 170px;
+    width: 200px;
+}
+
