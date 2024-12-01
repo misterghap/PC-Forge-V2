@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Icon Link @ fontawesome.com -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Google font for the Inter font style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- StyleSheet -->
+    <link rel="stylesheet" href="NavigationStyling.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PC Forge</title>
@@ -11,6 +28,34 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </head>
   <body>
+    <!-- Navigation Bars -->
+    <nav class="top">
+      <div class="topContainer">
+        <i id="usericon" class="fa-regular fa-user"></i>
+        <div>Sign-In / Register</div>
+      </div>
+    </nav>
+    <nav class="navigation">
+      <div class="navContainer">
+        <div>
+          <img src="Images/SysBuilder.png" />
+          <div>System Builder</div>
+        </div>
+        <div>
+          <img src="Images/Pre-Built PC.png" />
+          <div>Pre-Built PC</div>
+        </div>
+        <div>
+          <img src="Images/Laptop.png" />
+          <div>Laptops</div>
+        </div>
+        <div>
+          <img src="Images/Browse.png" />
+          <div>Browse Products</div>
+        </div>
+      </div>
+    </nav>
+    <!-- Navigation Bars -->
     <section class="home">
       <div class="home-text">
         <h1> Performing with Excellence <br> <span>To do More for More</span></h1>
@@ -50,5 +95,43 @@
       </div>
     </section>
     <script src="BuildScript.js"></script>
+  
+
+
+
+    <!-- Footer -->
+    <footer>
+      <div class="footerContainer">
+        <!-- Right side of Footer -->
+        <div class="footerLeft">
+          <h1>LOGO</h1>
+          <div>
+            PC Forge is a tool that makes PC building easier than ever. You can
+            choose from a range of components and check the compatibility with
+            your system to build your perfect PC.
+          </div>
+          <div>
+            To simplify the selection and management of PC parts, we provide a
+            platform that simplifies the process and provides you with the best
+            possible setup for your computer.
+          </div>
+        </div>
+        <!-- Right side of Footer -->
+        <div class="footerRight">
+          <div><p>Have a query? 24/7 Customer Service</p></div>
+          <div>
+            <img src="Images/Phone.png" />
+            <p>1899-889-8888</p>
+          </div>
+          <div>
+            <img src="Images/Mail.png" />
+            <p>customerservice@pcforge.com</p>
+          </div>
+        </div>
+
+        <div class="Icons"></div>
+      </div>
+    </footer>
+    <!-- Footer -->
   </body>
 </html>
