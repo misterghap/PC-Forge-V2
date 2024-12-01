@@ -19,10 +19,25 @@ html {
 .topContainer {
   color: white;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   width: 95%;
-  padding: 10px;
+  padding: 0px;
   align-items: center;
+  align-content: center;
+}
+
+.rightContainer {
+  display: flex;
+  align-content: center;
+
+  align-content: center;
+  height: 100%;
+  align-items: center;
+}
+
+#logo {
+  height: 65px;
+  width: 100px;
 }
 
 #usericon {
@@ -120,6 +135,12 @@ footer {
 .footerRight > div > img {
   height: 30px;
   width: 30px;
+}
+
+.footerLeft > img {
+  width: 180px;
+  height: 100px;
+  margin: auto;
 }
 
 @media screen and (max-width: 430px) {
