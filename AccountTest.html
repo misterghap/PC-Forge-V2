@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="LoginStyling.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+
+    
+    
+
+    <form class="loginContainer">
+    <div id="liveAlertPlaceholder" aria-live="assertive"></div>
+       <center><h1>Log-In / Register</h1></center>
+
+      <div id="userContainer" class="input-group mb-3">
+        <label>Username:</label>
+        <span class="input-group-text" id="basic-addon1">@</span>
+        <input
+          id="user"
+          type="text"
+          class="form-control"
+          placeholder="Username"
+          aria-label="Username"
+          aria-describedby="basic-addon1"
+        />
+      </div>
+
+      <div id="passContainer" class="input-group mb-3">
+        <label>Password:</label>
+        <input
+          id="pass"
+          type="password"
+          class="form-control"
+          placeholder="Password"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+        />
+
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          id="showHideBTN"
+        >
+          Show
+        </button>
+
+        
+        </div>
+
+        <div id="adminKeyContainer" class="input-group mb-3">
+            <label>Admin Key:</label>
+            <input
+              id="adminKey"
+              type="password"
+              class="form-control"
+              placeholder="Admin Key"
+              aria-label="Recipient's username"
+              aria-describedby="button-addon2"
+            />
+    
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              id="showHideBTN2"
+            >
+              Show
+            </button>
+    
+            
+            </div>
+        <div class="btnsWrap">
+        <button id="loginBTN" type="button" class="btn btn-primary">Log-in</button>
+        <button id="RegisterBTN" type="button" class="btn btn-primary">Register</button>
+    </div>
+      </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="AccFunction.js"></script>
+  </body>
+</html>
