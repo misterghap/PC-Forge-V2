@@ -71,6 +71,21 @@ body {
     color: #666;
 }
 
+.new-product {
+    background: white;
+    border-radius: 5px;
+    text-align: center;
+    padding: 15px;
+    max-width: 75%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0.3, 0.6);
+}
+
+.new-product img {
+    max-width: 40%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
 .buy-btn {
     display: inline-block;
     margin-top: 10px;

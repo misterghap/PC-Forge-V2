@@ -291,6 +291,41 @@
         </div>
     </main>
 
+    <div class="admin-form">
+        <h2>Add New Product</h2>
+        <form id="new-product-form">
+            <div class="mb-3">
+                <label for="product-name" class="form-label">Product Name</label>
+                <input type="text" class="form-control" id="product-name" required>
+            </div>
+            <div class="mb-3">
+                <label for="product-specs" class="form-label">Product Specs</label>
+                <input type="text" class="form-control" id="product-specs" required>
+            </div>
+            <div class="mb-3">
+                <label for="product-image" class="form-label">Product Image URL</label>
+                <input type="url" class="form-control" id="product-image" required>
+            </div>
+            <div class="mb-3">
+                <label for="product-link" class="form-label">Product Link</label>
+                <input type="url" class="form-control" id="product-link" required>
+            </div>
+            <div class="mb-3">
+                <label for="product-category" class="form-label">Product Category</label>
+                <select class="form-control" id="product-category" required>
+                    <option value="prebuilt">Pre-built PC</option>
+                    <option value="laptop">Laptop</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Product</button>
+            <div class="mb-3">
+                <label for="delete-product-id" class="form-label">Product Data-Value to Delete</label>
+                <input type="number" class="form-control" id="delete-product-id" required>
+            </div>
+            <button type="button" class="btn btn-danger" id="delete-product-btn">Delete Product</button>
+        </form>
+    </div>
+
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-logo-section">
