@@ -55,6 +55,21 @@ body {
   position: relative;
 }
 
+.country-selector span {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  font-size: small;
+  background-color: red;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 20%;
+  right: 50px;
+}
+
 .product img {
   max-width: 40%;
   height: auto;
@@ -84,6 +99,16 @@ body {
   max-width: 40%;
   height: auto;
   margin-bottom: 10px;
+}
+
+.product button {
+  background-color: #353432;
+  color: #eee;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
 }
 
 .buy-btn {
@@ -293,9 +318,63 @@ body {
   width: 200px;
 }
 
-.product > i {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  padding: 5px;
+.wishlist-tab {
+  width: 400px;
+  background-color: #232a58;
+  color: #eee;
+  position: fixed;
+  inset: 0 -400px 0 auto;
+  display: grid;
+  grid-template-rows: 70px 1fr 70px;
+  border-radius: 5%;
+}
+
+body.showList .wishlist-tab {
+  inset: 0 0 0 auto;
+}
+
+.wishlist-tab h1 {
+  padding: 20px;
+  margin: 0;
+  font-weight: 300;
+}
+
+.wishlist-tab .btn button {
+  background-color: rgb(254, 200, 72);
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.wishlist-tab .wishlistcontent .item img {
+  margin-right: 30px;
+  border-radius: 20%;
+  width: 100px;
+}
+
+.wishlist-tab .wishlistcontent .item {
+  display: grid;
+  grid-template-columns: 240px 70px 50px 1fr;
+  gap: 10px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.wishlistcontent .item .cross span {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-color: #eee;
+  color: #555;
+  border-radius: 50%;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.wishlistcontent {
+  overflow: auto;
+}
+
+.wishlistcontent::-webkit-scrollbar {
+  width: 0;
 }

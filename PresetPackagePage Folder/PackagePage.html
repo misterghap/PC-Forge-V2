@@ -12,8 +12,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
-<body>
- 
+<body class="">
+
     <main>
         <div class="banner">
             <h1>Browse Packages</h1>
@@ -63,6 +63,7 @@
             </div>
             <div class="divider-right"></div>
             <div class="country-selector">
+                <i class="bi bi-heart-fill" style="display: flex; padding-right: 60px; color: white; font-size: 30px; position: relative; cursor: pointer;" id="wishlist"><span>0</span></i>
                 <h1>Select Country:</h1>
                 <img src="../PresetPackagePage Folder/Images/canada.jpg" id="flag">
                 <select name="country" id="country">
@@ -74,7 +75,7 @@
         </div>
 
         <div class="product-container">
-            <div class="product" id="prebuilt" data-value="1">
+            <div class="product" id="prebuilt" data-value="1" data-id="1">
                 <img id="pc-photo" src="../PresetPackagePage Folder/Images/Alienware Aurora R13.jpg"
                     alt="Product Image">
                 <p class="product-name">Dell Alienware Aurora R13</p>
@@ -85,9 +86,11 @@
                     <img src="https://freepnglogo.com/images/all_img/1715487998amazon-logo-transparent.png"
                         alt="Amazon Logo">
                 </a>
+                <button id="1" class="but" style="display: flex; margin-left: 115px; padding-left: 10px; padding-right: 10px;">Add to List</button>
+    
                 <p>Now Available!</p>
             </div>
-            <div class="product" id="prebuilt" data-value="2">
+            <div class="product" id="prebuilt" data-value="2" data-id="2">
                 <img id="pc-photo" src="../PresetPackagePage Folder/Images/Orion 3000.jpg" alt="Product Image">
                 <p class="product-name">Acer Predator Orion 3000</p>
                 <p class="product-specs">Intel Core i7 12700F/1TB HDD/512GB SSD/16GB RAM/RTX 3070</p>
@@ -96,6 +99,7 @@
                     <img src="https://freepnglogo.com/images/all_img/1715487998amazon-logo-transparent.png"
                         alt="Amazon Logo">
                 </a>
+                <button id="2" class="but" style="display: flex; margin-left: 115px; padding-left: 10px; padding-right: 10px;">Add to List</button>
                 <p>Now Available!</p>
             </div>
             <div class="product" id="prebuilt" data-value="3">
@@ -108,6 +112,7 @@
                     <img src="https://freepnglogo.com/images/all_img/1715487998amazon-logo-transparent.png"
                         alt="Amazon Logo">
                 </a>
+                <button id="3" class="but" style="display: flex; margin-left: 115px; padding-left: 10px; padding-right: 10px;">Add to List</button>
                 <p>Now Available!</p>
             </div>
             <div class="product" id="prebuilt" data-value="4"> 
@@ -119,6 +124,7 @@
                     <img src="https://freepnglogo.com/images/all_img/1715487998amazon-logo-transparent.png"
                         alt="Amazon Logo">
                 </a>
+                <button id="4" class="but" style="display: flex; margin-left: 115px; padding-left: 10px; padding-right: 10px;">Add to List</button>
                 <p>Now Available!</p>
             </div>
             <div class="product" id="prebuilt" data-value="5">
@@ -131,6 +137,7 @@
                     <img src="https://freepnglogo.com/images/all_img/1715487998amazon-logo-transparent.png"
                         alt="Amazon Logo">
                 </a>
+                <button id="5" class="but" style="display: flex; margin-left: 115px; padding-left: 10px; padding-right: 10px;">Add to List</button>
                 <p>Now Available!</p>
             </div>
             <div class="product" id="prebuilt" data-value="6">
@@ -143,6 +150,7 @@
                     <img src="https://freepnglogo.com/images/all_img/1715487998amazon-logo-transparent.png"
                         alt="Amazon Logo">
                 </a>
+                <button id="6" class="but" style="display: flex; margin-left: 115px; padding-left: 10px; padding-right: 10px;">Add to List</button>
                 <p>Now Available!</p>
             </div>
             <div class="product" id="prebuilt" data-value="7">
@@ -154,6 +162,7 @@
                     <img src="https://freepnglogo.com/images/all_img/1715487998amazon-logo-transparent.png"
                         alt="Amazon Logo">
                 </a>
+                <button id="7" class="but" style="display: flex; margin-left: 115px; padding-left: 10px; padding-right: 10px;">Add to List</button>
                 <p>Now Available!</p>
             </div>
             <div class="product" id="prebuilt" data-value="8">
@@ -165,6 +174,7 @@
                     <img src="https://freepnglogo.com/images/all_img/1715487998amazon-logo-transparent.png"
                         alt="Amazon Logo">
                 </a>
+                <button id="8" class="but" style="display: flex; margin-left: 115px; padding-left: 10px; padding-right: 10px;">Add to List</button>
                 <p>Now Available!</p>
             </div>
             <div class="product" id="prebuilt" data-value="9">
@@ -178,6 +188,7 @@
                     <img src="https://freepnglogo.com/images/all_img/1715487998amazon-logo-transparent.png"
                         alt="Amazon Logo">
                 </a>
+                <button id="9" class="but" style="display: flex; margin-left: 115px; padding-left: 10px; padding-right: 10px;">Add to List</button>
                 <p>Now Available!</p>
             </div>
             <div class="product" id="laptop" data-value="10">
@@ -190,6 +201,7 @@
                     <img src="https://freepnglogo.com/images/all_img/1715487998amazon-logo-transparent.png"
                         alt="Amazon Logo">
                 </a>
+                <button id="10" class="but" style="display: flex; margin-left: 115px; padding-left: 10px; padding-right: 10px;">Add to List</button>
                 <p>Now Available!</p>
             </div>
             <div class="product" id="laptop" data-value="11">
@@ -202,6 +214,7 @@
                     <img src="https://freepnglogo.com/images/all_img/1715487998amazon-logo-transparent.png"
                         alt="Amazon Logo">
                 </a>
+                <button id="11" class="but" style="display: flex; margin-left: 115px; padding-left: 10px; padding-right: 10px;">Add to List</button>
                 <p>Now Available!</p>
             </div>
             <div class="product" id="laptop" data-value="12">
@@ -214,6 +227,7 @@
                     <img src="https://freepnglogo.com/images/all_img/1715487998amazon-logo-transparent.png"
                         alt="Amazon Logo">
                 </a>
+                <button id="12" class="but" style="display: flex; margin-left: 115px; padding-left: 10px; padding-right: 10px;">Add to List</button>
                 <p>Now Available!</p>
             </div>
             <div class="product" id="laptop" data-value="13">
@@ -226,6 +240,7 @@
                     <img src="https://freepnglogo.com/images/all_img/1715487998amazon-logo-transparent.png"
                         alt="Amazon Logo">
                 </a>
+                <button id="13" class="but" style="display: flex; margin-left: 115px; padding-left: 10px; padding-right: 10px;">Add to List</button>
                 <p>Now Available!</p>
             </div>
             <div class="product" id="laptop" data-value="14">
@@ -238,6 +253,7 @@
                     <img src="https://freepnglogo.com/images/all_img/1715487998amazon-logo-transparent.png"
                         alt="Amazon Logo">
                 </a>
+                <button id="14" class="but" style="display: flex; margin-left: 115px; padding-left: 10px; padding-right: 10px;">Add to List</button>
                 <p>Now Available!</p>
             </div>
             <div class="product" id="laptop" data-value="15">
@@ -251,6 +267,7 @@
                     <img src="https://freepnglogo.com/images/all_img/1715487998amazon-logo-transparent.png"
                         alt="Amazon Logo">
                 </a>
+                <button id="15" class="but" style="display: flex; margin-left: 115px; padding-left: 10px; padding-right: 10px;">Add to List</button>
                 <p>Now Available!</p>
             </div>
             <div class="product" id="laptop" data-value="16">
@@ -263,6 +280,7 @@
                     <img src="https://freepnglogo.com/images/all_img/1715487998amazon-logo-transparent.png"
                         alt="Amazon Logo">
                 </a>
+                <button id="16" class="but" style="display: flex; margin-left: 115px; padding-left: 10px; padding-right: 10px;">Add to List</button>
                 <p>Now Available!</p>
             </div>
             <div class="product" id="laptop" data-value="17">
@@ -275,6 +293,7 @@
                     <img src="https://freepnglogo.com/images/all_img/1715487998amazon-logo-transparent.png"
                         alt="Amazon Logo">
                 </a>
+                <button id="17" class="but" style="display: flex; margin-left: 115px; padding-left: 10px; padding-right: 10px;">Add to List</button>
                 <p>Now Available!</p>
             </div>
             <div class="product" id="laptop" data-value="18">
@@ -288,6 +307,7 @@
                     <img src="https://freepnglogo.com/images/all_img/1715487998amazon-logo-transparent.png"
                         alt="Amazon Logo">
                 </a>
+                <button id="18" class="but" style="display: flex; margin-left: 115px; padding-left: 10px; padding-right: 10px;">Add to List</button>
                 <p>Now Available!</p>
             </div>
         </div>
@@ -326,6 +346,73 @@
             </div>
             <button type="button" class="btn btn-danger" id="delete-product-btn">Delete Product</button>
         </form>
+    <div class="wishlist-tab">
+        <h1>Your wishlist</h1>
+        <div class="wishlistcontent">
+            <div class="item">
+                <div class="img">
+                    <img id="pc-photo" src="../PresetPackagePage Folder/Images/Alienware Aurora R13.jpg" alt="Product Image">
+                </div>
+                <div class="name" style="padding-top: 72px;">
+                    NAME
+                </div>
+                <div class="cross" style="padding-top: 72px;">
+                    <span class="remove">X</span>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="img">
+                    <img id="pc-photo" src="../PresetPackagePage Folder/Images/Alienware Aurora R13.jpg" alt="Product Image">
+                </div>
+                <div class="name" style="padding-top: 72px;">
+                    NAME
+                </div>
+                <div class="cross" style="padding-top: 72px;">
+                    <span class="remove">X</span>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="img">
+                    <img id="pc-photo" src="../PresetPackagePage Folder/Images/Alienware Aurora R13.jpg" alt="Product Image">
+                </div>
+                <div class="name" style="padding-top: 72px;">
+                    NAME
+                </div>
+                <div class="cross" style="padding-top: 72px;">
+                    <span class="remove">X</span>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="img">
+                    <img id="pc-photo" src="../PresetPackagePage Folder/Images/Alienware Aurora R13.jpg" alt="Product Image">
+                </div>
+                <div class="name" style="padding-top: 72px;">
+                    NAME
+                </div>
+                <div class="cross" style="padding-top: 72px;">
+                    <span class="remove">X</span>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="img">
+                    <img id="pc-photo" src="../PresetPackagePage Folder/Images/Alienware Aurora R13.jpg" alt="Product Image">
+                </div>
+                <div class="name" style="padding-top: 72px;">
+                    NAME
+                </div>
+                <div class="cross" style="padding-top: 72px;">
+                    <span class="remove">X</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="btn">
+            <button class="close">CLOSE</button>
+        </div>
     </div>
 
     <footer class="footer">
