@@ -58,6 +58,7 @@ $(document).ready(function () {
       { name: "1000W", price: 150 },
     ],
   };
+  $(".flexContainer").hide();
 
   let parts = [];
   /*
@@ -119,11 +120,11 @@ $(document).ready(function () {
   });
 
   // Handle search submission
-  //Should probably handle budget beforehand, so that we can have it dynamically update while adding stuff
+
   $("#filter-form").on("submit", function (e) {
     e.preventDefault();
 
-    $("#HelpOutput").show();
+    $(".flexContainer").show();
     const budget = parseFloat($("#budget").val());
     let cost = 0;
 
@@ -166,7 +167,6 @@ $(document).ready(function () {
     //iterates through each part in the array, creates new row in output table
 
     for (part of parts) {
-      console.log("hi");
       let newRow = document.createElement("tr");
       newRow.id = "productOutput";
       let formattedPartName = part.name.replace(/\s+/g, "+");
@@ -184,5 +184,63 @@ $(document).ready(function () {
      <div><a href=${newEggUrl}>Newegg</a></div>
      </td>`;
     }
+
+    // Call AI response for feedback based on filters
+    AIResponse(parts, budget);
+
+    // Show parts and recommendations
+    showPCParts(parts, budget);
   });
+
+  // AI Response function
+  async function AIResponse(parts, budget) {
+    const apiUrl =
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyB0LQnI2MGX8ASm4_ZO-1Y6Wf_gTzrF408";
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          contents: [
+            {
+              parts: [
+                { text: `Budget: $${budget}` },
+                {
+                  text: `Parts Selected: ${parts
+                    .map((part) => part.name)
+                    .join(", ")}`,
+                },
+              ],
+            },
+          ],
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.candidates && data.candidates[0] && data.candidates[0].content) {
+        //Empties previous text if ran again in same instance
+        $(".botContainer p[id='AIFeed']").remove();
+
+        const feedback = data.candidates[0].content.parts[0].text.trim();
+        let spacedText = feedback.replace(/\n/g, "<br>");
+        let formattedText = spacedText.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>");
+        $(".botContainer").append(
+          `<p id="AIFeed"><strong>AI Feedback:</strong> ${formattedText}</p>`
+        );
+      } else {
+        $(".botContainer").append(
+          `<p><strong>AI Feedback:</strong> Unable to generate feedback. Please try again later.</p>`
+        );
+      }
+    } catch (error) {
+      console.error("Error fetching AI response:", error);
+      $(".botContainer").append(
+        `<p><strong>AI Feedback:</strong> There was an error retrieving the AI response. Please try again later.</p>`
+      );
+    }
+  }
 });
