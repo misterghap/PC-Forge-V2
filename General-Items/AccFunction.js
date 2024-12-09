@@ -53,6 +53,7 @@ $(document).ready(function () {
 
   //ALERT END
 
+  //Holds information for logged in users
   let loggedIn = JSON.parse(localStorage.getItem("loggedIn")) || {
     username: "",
     adminStat: "",
@@ -104,6 +105,7 @@ $(document).ready(function () {
         const storedAdminStatus = accountStorage[username][0].admin;
         if (password === storedPassword) {
           logInUser(username, storedAdminStatus);
+          logReg.text(loggedIn.username);
           appendAlert("Logged in", "success");
         } else if (password != storedPassword) {
           appendAlert("Incorrect Password. Please try again", "danger");
@@ -115,4 +117,53 @@ $(document).ready(function () {
   });
 
   //Log-In End
+
+  //Log-out
+  let logOutBTN = $("#logOutBTN");
+  let cancelBTN = $("#cancelBTN");
+
+  cancelBTN.on("click", function () {
+    lightbox.removeClass("active");
+  });
+
+  logOutBTN.on("click", function () {
+    lightbox.removeClass("active");
+    logOutUser();
+    appendAlert("Logged out", "success");
+    logReg.text("Log-In / Register");
+  });
+
+  //Lightbox Feature
+  let logReg = $("#logText");
+  let lightbox = $("#lightbox");
+  let lightboxTwo = $("#lightboxTwo");
+
+  //Kept outside so that when they are done logging in, they can exit the log in page
+  $(document).on("click", function (event) {
+    if (
+      !$(event.target).closest(
+        ".loginContainer, #logText, #liveAlertPlaceholder"
+      ).length
+    ) {
+      lightbox.hide();
+      lightboxTwo.hide();
+    }
+  });
+
+  //Will only allow opening the logIn container if no user is logged in
+  if (!loggedIn.username) {
+    logReg.on("click", function () {
+      lightbox.show();
+    });
+  } else if (loggedIn.username) {
+    logReg.text(loggedIn.username);
+    logReg.on("click", function () {
+      lightboxTwo.show();
+    });
+  }
+
+  if (loggedIn.adminStat == false || !loggedIn.adminStat) {
+    $(".admin-form").hide();
+  }
+  //Lightbox END
 });

@@ -9,6 +9,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
     <!-- Google font for the Inter font style -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,8 +18,7 @@
       rel="stylesheet"
     />
     <!-- StyleSheet -->
-    <link rel="stylesheet" href="NavigationStyling.css" />
-    <link rel="stylesheet" href="BuildPageStyling.css" />
+    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PC Forge</title>
@@ -30,8 +30,11 @@
     <link
       rel="icon"
       type="image/png"
-      href="Images/Screenshot_2024-11-25_220152-removebg-preview.png"
+      href="../General-Items/Images/Logo.png"
     />
+    <link rel="stylesheet" href="../General-Items/LoginStyling.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../General-Items/NavigationStyling.css" />
   </head>
  
 
@@ -41,30 +44,30 @@
       <div class="topContainer">
         <img
           id="logo"
-          src="Images/Screenshot_2024-11-25_220152-removebg-preview.png"
+          src="../General-Items/Images/Logo.png"
         />
         <div class="rightContainer">
           <i id="usericon" class="fa-regular fa-user"></i>
-          <div id="logText">Sign-In / Register</div>
+          <div id="logText">Log-In / Register</div>
         </div>
       </div>
     </nav>
     <nav class="navigation">
       <div class="navContainer">
         <div>
-          <img src="Images/SysBuilder.png" />
+          <img src="../General-Items/Images/SysBuilder.png" />
           <div>System Builder</div>
         </div>
         <div>
-          <img src="Images/Pre-Built PC.png" />
+          <img src="../General-Items/Images/Pre-Built PC.png" />
           <div>Pre-Built PC</div>
         </div>
         <div>
-          <img src="Images/Laptop.png" />
+          <img src="../General-Items/Images/Laptop.png" />
           <div>Laptops</div>
         </div>
         <div>
-          <img src="Images/Browse.png" />
+          <img src="../General-Items/Images/Browse.png" />
           <div>Browse Products</div>
         </div>
       </div>
@@ -99,53 +102,171 @@
       </div>
 
       <!-- Search Button -->
-      <button type="submit" class="btn btn-primary">Search</button>
+      <button type="submit" class="btn btn-primary">Confirm Parts</button>
+      
   </form>
-  <div class="budgetTrackContainer" id="budgetTrack">
-    
+  
+  <div class="trackerContainer">
+    <div class="budgetTrackContainer" id="budgetTrack">Budget: </div>
+    <div class="costTrackContainer" id="costTrack">Cost: </div>
   </div>
-</div>
-        </div>
-      </div>
-    </section>
+  
+  </div>
+
+  <table id="HelpOutput">
+    <tr>
+      <td>Type</td>
+      <td>Name</td>
+      <td>Price</td>
+      <td>Vendors</td>
+    </tr>
+
+  </table>
+    
     <script src="BuildScript.js"></script>
+    <script src="../General-Items/AccFunction.js"></script>
   
 
+    <!-- LOGIN / REGISTER -->
+ <div id="lightbox">
+  <form class="loginContainer">
+    <div id="liveAlertPlaceholder" aria-live="assertive"></div>
+       <center><h3>Log-In / Register</h3></center>
+
+      <div id="userContainer" class="input-group mb-3">
+        <label>Username:</label>
+       
+        <input
+          id="user"
+          type="text"
+          class="form-control"
+          placeholder="Username"
+          aria-label="Username"
+          aria-describedby="basic-addon1"
+        />
+      </div>
+
+      <div id="passContainer" class="input-group mb-3">
+        <label>Password:</label>
+        <input
+          id="pass"
+          type="password"
+          class="form-control"
+          placeholder="Password"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+        />
+
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          id="showHideBTN"
+        >
+          Show
+        </button>
+
+        
+        </div>
+
+        <div id="adminKeyContainer" class="input-group mb-3">
+            <label>Admin Key:</label>
+            <input
+              id="adminKey"
+              type="password"
+              class="form-control"
+              placeholder="Admin Key"
+              aria-label="Recipient's username"
+              aria-describedby="button-addon2"
+            />
+    
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              id="showHideBTN2"
+            >
+              Show
+            </button>
+    
+            
+            </div>
+        <div class="btnsWrap">
+        <button id="loginBTN" type="button" class="btn btn-primary">Log-in</button>
+        <button id="RegisterBTN" type="button" class="btn btn-primary">Register</button>
+    </div>
+      </form>
+ </div>
+
+ 
+
+</div>
+
+<div id="lightboxTwo">
+  <div class="logoutContainer">
+    <div id="liveAlertPlaceholder" aria-live="assertive"></div>
+
+    <center><h2>Are you sure you want to log out?</h2></center>
+    <div class="btnsWrap">
+      <button id="logOutBTN" type="button" class="btn btn-danger">Log out</button>
+
+      <button id="cancelBTN" type="button" class="btn btn-primary">
+        Dismiss
+      </button>
+    </div>
+  </div>
+</div>
+  <!-- LOGIN / REGISTER END -->
     
 
-    <!-- Footer -->
-    <footer>
-      <div class="footerContainer">
-        <!-- Right side of Footer -->
-        <div class="footerLeft">
-          <img src="Images/Screenshot_2024-11-25_220152-removebg-preview.png" />
-          <div>
-            PC Forge is a tool that makes PC building easier than ever. You can
-            choose from a range of components and check the compatibility with
-            your system to build your perfect PC.
-          </div>
-          <div>
-            To simplify the selection and management of PC parts, we provide a
-            platform that simplifies the process and provides you with the best
-            possible setup for your computer.
-          </div>
+  <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logo-section">
+            <div class="logo">PC Forge</div>
+            <p class="description">
+                PC Forge is a tool that makes PC building easier than ever. You can choose from a range of
+                components and check the compatibility with your system to build your perfect PC.
+            </p>
+            <p class="description">
+                To simplify the selection and management of PC parts, we provide a platform that simplifies the
+                process and provides you with the best possible setup for your computer.
+            </p>
         </div>
-        <!-- Right side of Footer -->
-        <div class="footerRight">
-          <div><p>Have a query? 24/7 Customer Service</p></div>
-          <div>
-            <img src="Images/Phone.png" />
-            <p>1899-889-8888</p>
-          </div>
-          <div>
-            <img src="Images/Mail.png" />
-            <p>customerservice@pcforge.com</p>
-          </div>
+        <div class="footer-contact-section">
+            <p class="contact-title">Have a query? Contact Us at 24/7 Customer Service</p>
+            <p class="contact-info">
+            <div class="phone-number d-flex align-items-center">
+                <i class="bi bi-telephone me-2"></i>
+                <p class="mb-0">1 899-889-8888</p>
+            </div>
+            <div class="email d-flex align-items-center">
+                <i class="bi bi-envelope me-2"></i>
+                <p class="mb-0">customerservice@pcforge.com</p>
+            </div>
+            </p>
         </div>
-
-        <div class="Icons"></div>
-      </div>
-    </footer>
-    <!-- Footer -->
+        <div class="footer-social-section">
+            <a href="https://instagram.com">
+                <h1 class="m-4">
+                    <i class="bi bi-instagram"></i>
+                </h1>
+            </a>
+            <a href="https://facebook.com">
+                <h1 class="m-4">
+                    <i class="bi bi-facebook"></i>
+                </h1>
+            </a>
+            <a href="https://github.com/home">
+                <h1 class="m-4">
+                    <i class="bi bi-github"></i>
+                </h1>
+            </a>
+        </div>
+    </div>
+    <div class="footer-disclaimer">
+        <p>
+            PC Forge™ is a participant of the Amazon Associates Program, through which we earn advertising
+            commission on qualified sales by linking to the Amazon products.
+        </p>
+    </div>
+</footer>
   </body>
 </html>

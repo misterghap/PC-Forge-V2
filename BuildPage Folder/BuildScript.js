@@ -5,66 +5,68 @@ $(document).ready(function () {
       { name: "Intel Core i9", price: 500 },
       { name: "Intel Core i7", price: 350 },
       { name: "Intel Core i5", price: 250 },
-      { name: "AMD Ryzen 9", price: 500 },
-      { name: "AMD Ryzen 7", price: 300 },
-      { name: "AMD Ryzen 5", price: 200 },
+      { name: "AMD Ryzen 9", price: 450 },
+      { name: "AMD Ryzen 7", price: 325 },
+      { name: "AMD Ryzen 5", price: 225 },
     ],
     gpu: [
-      { name: "RTX 40 Series", price: 700 },
-      { name: "RTX 30 Series", price: 500 },
+      { name: "RTX 40 Series", price: 1000 },
+      { name: "RTX 30 Series", price: 700 },
       { name: "GTX 10 Series", price: 350 },
-      { name: "GTX 16 Series", price: 200 },
-      { name: "AMD R9", price: 0 },
-      { name: "AMD R7", price: 0 },
-      { name: "AMD R5", price: 0 },
-      { name: "AMD R3", price: 0 },
+      { name: "GTX 16 Series", price: 225 },
+      { name: "AMD R9", price: 650 },
+      { name: "AMD R7", price: 450 },
+      { name: "AMD R5", price: 275 },
+      { name: "AMD R3", price: 175 },
     ],
     ram: [
-      { name: "16GB", price: 0 },
-      { name: "32GB", price: 0 },
-      { name: "64GB", price: 0 },
-      { name: "128GB", price: 0 },
+      { name: "16GB", price: 60 },
+      { name: "32GB", price: 110 },
+      { name: "64GB", price: 210 },
+      { name: "128GB", price: 400 },
     ],
     cooler: [
-      { name: "Cooler Master", price: 0 },
-      { name: "NZXT Kraken", price: 0 },
-      { name: "Corsair iCUE", price: 0 },
+      { name: "Cooler Master", price: 60 },
+      { name: "NZXT Kraken", price: 120 },
+      { name: "Corsair iCUE", price: 150 },
     ],
     motherboard: [
-      { name: "MSI B500", price: 0 },
-      { name: "ASUS ROG", price: 0 },
-      { name: "Gigabyte", price: 0 },
-      { name: "Aorus Elite", price: 0 },
-      { name: "MSI MAG", price: 0 },
+      { name: "MSI B500", price: 130 },
+      { name: "ASUS ROG", price: 230 },
+      { name: "Gigabyte", price: 180 },
+      { name: "Aorus Elite", price: 200 },
+      { name: "MSI MAG", price: 210 },
     ],
     storage: [
-      { name: "500GB HDD", price: 0 },
-      { name: "1TB SSD", price: 0 },
-      { name: "2TB SSD", price: 0 },
-      { name: "500GB HDD", price: 0 },
-      { name: "1TB HDD", price: 0 },
-      { name: "2TB SSD", price: 0 },
+      { name: "500GB HDD", price: 40 },
+      { name: "1TB SSD", price: 100 },
+      { name: "2TB SSD", price: 200 },
+      { name: "500GB HDD", price: 40 },
+      { name: "1TB HDD", price: 60 },
+      { name: "2TB SSD", price: 190 },
     ],
     case: [
-      { name: "NZXT H510", price: 0 },
-      { name: "Corsair iCUE 4000X", price: 0 },
-      { name: "GAMEPOWER Warcry", price: 0 },
-      { name: "Phanteks P400A", price: 0 },
-      { name: "Asus TUF GT301", price: 0 },
+      { name: "NZXT H510", price: 70 },
+      { name: "Corsair iCUE 4000X", price: 130 },
+      { name: "GAMEPOWER Warcry", price: 100 },
+      { name: "Phanteks P400A", price: 80 },
+      { name: "Asus TUF GT301", price: 90 },
     ],
     powerSupply: [
-      { name: "650W", price: 0 },
-      { name: "750W", price: 0 },
-      { name: "1000W", price: 0 },
+      { name: "650W", price: 80 },
+      { name: "750W", price: 100 },
+      { name: "1000W", price: 150 },
     ],
   };
 
+  let parts = [];
+  /*
   // Variable to store selected filters
   let selectedFilters = {
     budget: null,
     parts: [],
   };
-
+*/
   // Handle adding new part selection
   $("#add-part").on("click", function () {
     const partSelectHTML = `
@@ -104,7 +106,6 @@ $(document).ready(function () {
       pcParts[partType].forEach((item) => {
         const optionText = `${item.name} - $${item.price}`;
         partValueSelect.append(new Option(optionText, JSON.stringify(item)));
-        //I'm going to include a check so that an item will not display if it puts the cost over the budget - Fahad
       });
     } else {
       partValueSelect.attr("disabled", true);
@@ -122,8 +123,9 @@ $(document).ready(function () {
   $("#filter-form").on("submit", function (e) {
     e.preventDefault();
 
-    const budget = $("#budget").val();
-    const parts = [];
+    $("#HelpOutput").show();
+    const budget = parseFloat($("#budget").val());
+    let cost = 0;
 
     // make sure budget is a number
     if (!budget || isNaN(budget) || budget <= 0) {
@@ -131,10 +133,12 @@ $(document).ready(function () {
       return;
     }
 
+    parts = [];
     // Collect selected parts
     $(".part-container").each(function () {
       const partType = $(this).find(".part-type").val();
       const partValue = $(this).find(".part-value").val();
+
       if (partType && partValue) {
         const selectedPart = JSON.parse(partValue);
         parts.push({
@@ -142,30 +146,43 @@ $(document).ready(function () {
           name: selectedPart.name,
           price: selectedPart.price,
         });
+        cost += selectedPart.price;
       }
     });
 
-    // Store the selected filters
-    selectedFilters = { budget, parts };
-
-    //When we do the filter part we can add it here
-    console.log("Filters applied:", selectedFilters);
-
-    // For now, filter parts are a message
-    if (parts.length > 0) {
-      $("#pc-cards").html(
-        `<p>Filtered by Budget: $${
-          selectedFilters.budget
-        } and Parts: ${JSON.stringify(selectedFilters.parts)}</p>`
-      );
+    if (budget < cost) {
+      $("#costTrack").css("color", "red");
+    } else if (budget > cost) {
+      $("#costTrack").css("color", "#39FF14");
     } else {
-      $("#pc-cards").html(
-        `<p>No parts selected. Please add parts to filter the products.</p>`
-      );
+      $("#costTrack").css("color", "yellow");
     }
+    $("#budgetTrack").text("Budget: " + budget);
+    $("#costTrack").text("Cost: " + cost);
 
-    for (const part of parts) {
-      console.log(part);
+    //erases all previous outputs from the table
+    $("#HelpOutput tr[id='productOutput']").remove();
+
+    //iterates through each part in the array, creates new row in output table
+
+    for (part of parts) {
+      console.log("hi");
+      let newRow = document.createElement("tr");
+      newRow.id = "productOutput";
+      let formattedPartName = part.name.replace(/\s+/g, "+");
+      const amazonUrl = `https://www.amazon.ca/s?k=${formattedPartName}&crid=2FZ784W9NJ9Z&sprefix=%2Caps%2C146&ref=nb_sb_ss_recent_1_0_recent&category=electronics`;
+      const bestBuyurl = `https://www.bestbuy.ca/en-ca/search?search=${formattedPartName}`;
+      const newEggUrl = `https://www.newegg.ca/p/pl?d=${formattedPartName}`;
+      document.getElementById("HelpOutput").appendChild(newRow);
+      newRow.innerHTML = `
+     <td>${part.partType}</td>
+     <td>${part.name}</td>
+     <td>${part.price}</td>
+     <td>
+     <div><a href=${amazonUrl}>Amazon</a></div>
+     <div><a href=${bestBuyurl}>BestBuy</a></div>
+     <div><a href=${newEggUrl}>Newegg</a></div>
+     </td>`;
     }
   });
 });
