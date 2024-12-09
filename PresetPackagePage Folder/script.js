@@ -271,6 +271,7 @@ document.querySelector(".close").addEventListener("click", () => {
 });
 
 // Show the wishlist when the heart icon is clicked
+
 document.getElementById("wishlist").addEventListener("click", () => {
-  document.body.classList.toggle("showList"); // Toggle the wishlist visibility
+  document.body.classList.toggle("showList");
 });

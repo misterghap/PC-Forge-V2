@@ -71,10 +71,11 @@
 }
 
 /* Filters Section - Move it down */
-.filters-section {
+.filter-section {
   margin-top: 50px; /* Reduce margin to bring filters closer */
   padding: 20px;
-  text-align: center;
+  text-align: left;
+  position: relative;
 }
 
 /* Filters form styling */
@@ -148,13 +149,74 @@
   margin: auto;
   justify-content: center;
 }
+.trackerContainer {
+  position: absolute;
+  top: 0px;
+  right: 100px;
+}
 
-.budgetTrackContainer {
-  margin-top: 10px;
-  background-color: gray;
-  color: white;
-  padding: 5px;
+.budgetTrackContainer,
+.costTrackContainer {
+  padding: 8px 15px;
+  margin-bottom: 8px;
   width: fit-content;
   height: fit-content;
   border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.budgetTrackContainer {
+  background-color: #001d3d;
+  color: white;
+}
+
+.costTrackContainer {
+  background-color: #333;
+  color: white;
+}
+
+/* Table Styling */
+#HelpOutput {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  display: none;
+}
+
+/* Table Header */
+#HelpOutput th {
+  background-color: #001d3d;
+  color: white;
+  padding: 12px 20px;
+  text-align: left;
+  font-size: 16px;
+}
+
+#HelpOutput td {
+  padding: 12px 20px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+}
+
+#HelpOutput tr:hover {
+  background-color: #f2f2f2;
+}
+
+#HelpOutput a {
+  color: #001d3d;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#HelpOutput a:hover {
+  text-decoration: underline;
+}
+
+#HelpOutput th,
+#HelpOutput td {
+  border: 1px solid #ddd;
 }

@@ -145,22 +145,25 @@ $(document).ready(function () {
         ".loginContainer, #logText, #liveAlertPlaceholder"
       ).length
     ) {
-      lightbox.removeClass("active");
-      lightboxTwo.removeClass("active");
+      lightbox.hide();
+      lightboxTwo.hide();
     }
   });
 
   //Will only allow opening the logIn container if no user is logged in
   if (!loggedIn.username) {
     logReg.on("click", function () {
-      lightbox.addClass("active");
+      lightbox.show();
     });
   } else if (loggedIn.username) {
     logReg.text(loggedIn.username);
     logReg.on("click", function () {
-      lightboxTwo.addClass("active");
+      lightboxTwo.show();
     });
   }
 
+  if (loggedIn.adminStat == false || !loggedIn.adminStat) {
+    $(".admin-form").hide();
+  }
   //Lightbox END
 });
