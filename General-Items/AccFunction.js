@@ -49,6 +49,9 @@ $(document).ready(function () {
     ].join("");
 
     alertPlaceholder.append(wrapper);
+    setTimeout(() => {
+      wrapper.remove();
+    }, 3000)
   };
 
   //ALERT END

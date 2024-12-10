@@ -61,7 +61,7 @@ html {
   height: 65px;
 }
 
-.navContainer > div {
+.navContainer > a {
   display: flex;
   border-right: 1px white solid;
   width: fit-content;
@@ -72,6 +72,13 @@ html {
   align-items: center;
   padding-right: 30px;
   padding-left: 30px;
+  color: white;
+  text-decoration: none;
+}
+
+.navContainer > a:hover {
+  color: rgb(55, 228, 255);
+  text-decoration: none;
 }
 
 .navContainer > img {

@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="../General-Items/NavigationStyling.css" />
+    </head>
+    <body>
+        <nav class="top">
+            <div class="topContainer">
+              <a href="/Landing Folder/Landing.html">
+              <img
+                id="logo"
+                src="../General-Items/Images/Logo.png"
+              />
+            </a>
+              <div class="rightContainer">
+                <i id="usericon" class="fa-regular fa-user"></i>
+                <div id="logText">Log-In / Register</div>
+              </div>
+            </div>
+          </nav>
+        <nav class="navigation">
+            <div class="navContainer">
+              <a href="../BuildPage Folder/BuildPage.html">
+                <img src="../General-Items/Images/SysBuilder.png" />
+                <div>System Builder</div>
+              </a>
+              <a href="../PresetPackagePage Folder/PackagePage.html">
+                <img src="../General-Items/Images/Pre-Built PC.png" />
+                <div>Pre-Built PC</div>
+              </a>
+              <a href="../ProductPage/index.html">
+                <img src="../General-Items/Images/Browse.png" />
+                <div>Create Products</div>
+              </a>
+            </div>
+          </nav>
+        <main>
+            <h1>Products</h1>
+
+            <section>
+                <h2>Create New Product</h2>
+                <form method="POST" action="/product/new">
+                    <div class="input-group">
+                        <label for="link">Amazon Link</label>
+                        <input name="link" type="text" />
+                    </div>
+                    <div class="input-group">
+                        <label for="id">Unique ID</label>
+                        <input name="id" type="text" />
+                    </div>
+                    <div class="input-group">
+                        <label for="name">Name</label>
+                        <input name="name" type="text" />
+                    </div>
+                    <div class="input-group">
+                        <label for="description">Description</label>
+                        <textarea name="description" rows="4"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="image">Image</label>
+                        <input name="image" type="file" />
+                    </div>
+
+                    <div class="buttons">
+                        <!-- Change type to "submit" to submit the
+                         form on clock -->
+                        <button type="button" id="add-button">
+                            Add Product
+                        </button>
+                        <button
+                            type="button"
+                            class="delete"
+                            id="discard-button"
+                        >
+                            Discard
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="existing-products">
+                <h2>Existing Products</h2>
+                <div class="product">
+                    <header>
+                        <img
+                            class="product-image"
+                            src="https://m.media-amazon.com/images/I/31Hq8-Z9oWL._AC._SR240,240.jpg"
+                        />
+                        <p>Corsair Vengeance RAM</p>
+                    </header>
+                    <p class="desc">
+                        Vengeance LPX memory is designed for high performance
+                        Overclocking. The heat spreader is made of pure aluminum
+                        for faster heat dissipation, and the eight layer PCB
+                        helps manage heat and provides superior Overclocking
+                        headroom.
+                    </p>
+
+                    <button class="delete">Delete</button>
+                </div>
+                <div class="product">
+                    <header>
+                        <img
+                            class="product-image"
+                            src="https://m.media-amazon.com/images/I/41jgzVUXf1L._AC._SR180,230.jpg"
+                        />
+                        <p>Corsair RM750e Power Supply</p>
+                    </header>
+                    <p class="desc">
+                        CORSAIR RMe Series Fully Modular Low-Noise Power
+                        Supplies provide quiet, reliable power with 80 PLUS Gold
+                        efficiency to your PC. With ATX 3.0 and PCIe 5.0
+                        compliance and an array of PCIe 8-pin power connectors,
+                        RMe PSUs have the connections needed to power today’s
+                        demanding PC hardware.
+                    </p>
+
+                    <button class="delete">Delete</button>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
