@@ -150,9 +150,12 @@
   justify-content: center;
 }
 .trackerContainer {
-  position: absolute;
+  /* position: absolute; */
+  display: flex;
+  gap: 8px;
   top: 0px;
   right: 100px;
+  margin-bottom: 16px;
 }
 
 .budgetTrackContainer,
@@ -183,18 +186,20 @@
   align-items: flex-start;
   width: 100%;
   margin-top: 20px;
+
 }
 
 .tableContainer {
   flex: 1;
-  max-width: 50%;
+  /* max-width: 50%; */
   margin-right: 20px;
   overflow-x: auto;
+  padding: 12px;
 }
 
 .botContainer {
   flex: 1;
-  max-width: 50%;
+  /* max-width: 50%; */
   padding: 10px;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
@@ -252,7 +257,7 @@
 
 .botContainer {
   flex: 1;
-  max-width: 50%;
+  /* max-width: 50%; */
   padding: 20px;
   background-color: #fdfdfd;
   border: 1px solid #ddd;
@@ -265,3 +270,18 @@
 .botContainer::-webkit-scrollbar {
   width: 8px;
 }
+
+.resultsTable {
+  padding: 12px;
+  justify-content: center;
+  align-items: start;
+}
+
+@media screen and (max-width: 900px) {
+  .resultsTable {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
