@@ -6,59 +6,77 @@
     <body>
         <nav class="top">
             <div class="topContainer">
-              <a href="/Landing Folder/Landing.html">
-              <img
-                id="logo"
-                src="../General-Items/Images/Logo.png"
-              />
-            </a>
-              <div class="rightContainer">
-                <i id="usericon" class="fa-regular fa-user"></i>
-                <div id="logText">Log-In / Register</div>
-              </div>
+                <a href="../Landing Folder/Landing.html">
+                    <img id="logo" src="../General-Items/Images/Logo.png" />
+                </a>
+                <div class="rightContainer">
+                    <i id="usericon" class="fa-regular fa-user"></i>
+                    <div id="logText">Log-In / Register</div>
+                </div>
             </div>
-          </nav>
+        </nav>
         <nav class="navigation">
             <div class="navContainer">
-              <a href="../BuildPage Folder/BuildPage.html">
-                <img src="../General-Items/Images/SysBuilder.png" />
-                <div>System Builder</div>
-              </a>
-              <a href="../PresetPackagePage Folder/PackagePage.html">
-                <img src="../General-Items/Images/Pre-Built PC.png" />
-                <div>Pre-Built PC</div>
-              </a>
-              <a href="../ProductPage/index.html">
-                <img src="../General-Items/Images/Browse.png" />
-                <div>Create Products</div>
-              </a>
+                <a href="../BuildPage Folder/BuildPage.html">
+                    <img src="../General-Items/Images/SysBuilder.png" />
+                    <div>System Builder</div>
+                </a>
+                <a href="../PresetPackagePage Folder/PackagePage.html">
+                    <img src="../General-Items/Images/Pre-Built PC.png" />
+                    <div>Pre-Built PC</div>
+                </a>
+                <a href="../ProductPage/index.html">
+                    <img src="../General-Items/Images/Browse.png" />
+                    <div>Create Products</div>
+                </a>
             </div>
-          </nav>
+        </nav>
         <main>
-            <h1>Products</h1>
+            <h1>Create New Product</h1>
 
             <section>
-                <h2>Create New Product</h2>
                 <form method="POST" action="/product/new">
                     <div class="input-group">
                         <label for="link">Amazon Link</label>
-                        <input name="link" type="text" />
+                        <input id="amazonlink" name="link" type="text" />
                     </div>
                     <div class="input-group">
-                        <label for="id">Unique ID</label>
-                        <input name="id" type="text" />
+                        <label for="link">Part Type</label>
+                        <select id="part-type">
+                            <option value="cpu">CPU</option>
+                            <option value="gpu">GPU</option>
+                            <option value="ram">RAM</option>
+                            <option value="cooler">Cooler</option>
+                            <option value="motherboard">Motherboard</option>
+                            <option value="storage">Storage</option>
+                            <option value="case">Case</option>
+                            <option value="powerSupply">Power Supply</option>
+                        </select>
                     </div>
                     <div class="input-group">
                         <label for="name">Name</label>
-                        <input name="name" type="text" />
+                        <input id="prod-name" name="name" type="text" />
+                    </div>
+                    <div class="input-group">
+                        <label for="name">Price</label>
+                        <input
+                            id="part-price"
+                            name="name"
+                            min="0"
+                            type="number"
+                        />
                     </div>
                     <div class="input-group">
                         <label for="description">Description</label>
-                        <textarea name="description" rows="4"></textarea>
+                        <textarea
+                            id="prod-desc"
+                            name="description"
+                            rows="4"
+                        ></textarea>
                     </div>
                     <div class="input-group">
                         <label for="image">Image</label>
-                        <input name="image" type="file" />
+                        <input id="prod-image" name="image" type="file" />
                     </div>
 
                     <div class="buttons">
@@ -79,45 +97,135 @@
             </section>
 
             <section id="existing-products">
-                <h2>Existing Products</h2>
-                <div class="product">
-                    <header>
-                        <img
-                            class="product-image"
-                            src="https://m.media-amazon.com/images/I/31Hq8-Z9oWL._AC._SR240,240.jpg"
-                        />
-                        <p>Corsair Vengeance RAM</p>
-                    </header>
-                    <p class="desc">
-                        Vengeance LPX memory is designed for high performance
-                        Overclocking. The heat spreader is made of pure aluminum
-                        for faster heat dissipation, and the eight layer PCB
-                        helps manage heat and provides superior Overclocking
-                        headroom.
-                    </p>
-
-                    <button class="delete">Delete</button>
-                </div>
-                <div class="product">
-                    <header>
-                        <img
-                            class="product-image"
-                            src="https://m.media-amazon.com/images/I/41jgzVUXf1L._AC._SR180,230.jpg"
-                        />
-                        <p>Corsair RM750e Power Supply</p>
-                    </header>
-                    <p class="desc">
-                        CORSAIR RMe Series Fully Modular Low-Noise Power
-                        Supplies provide quiet, reliable power with 80 PLUS Gold
-                        efficiency to your PC. With ATX 3.0 and PCIe 5.0
-                        compliance and an array of PCIe 8-pin power connectors,
-                        RMe PSUs have the connections needed to power today’s
-                        demanding PC hardware.
-                    </p>
-
-                    <button class="delete">Delete</button>
-                </div>
+                <h2>Additional Products</h2>
+                <span id="no-items">No products created yet...</span>
+                <div id="products"></div>
             </section>
         </main>
+        <script>
+            const addbutton = document.getElementById("add-button");
+            const products = document.getElementById("products");
+
+            const amazonLink = document.getElementById("amazonlink");
+            const name = document.getElementById("prod-name");
+            const desc = document.getElementById("prod-desc");
+            const image = document.getElementById("prod-image");
+            const partType = document.getElementById("part-type");
+            const price = document.getElementById("part-price");
+
+            addbutton.addEventListener("click", (e) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(image.files[0]);
+                reader.onload = function () {
+                    addProduct(
+                        name.value,
+                        desc.value,
+                        price.value,
+                        reader.result
+                    );
+                    const extraItems = localStorage.getItem("adminItems");
+                    const newItem = {
+                        name: name.value,
+                        desc: desc.value,
+                        price: price.value,
+                        amazonLink: amazonLink.value,
+                        image: reader.result,
+                        partType: partType.value,
+                    };
+                    if (extraItems) {
+                        const json = JSON.parse(extraItems);
+                        json.push(newItem);
+                        localStorage.setItem(
+                            "adminItems",
+                            JSON.stringify(json)
+                        );
+                    } else {
+                        localStorage.setItem(
+                            "adminItems",
+                            JSON.stringify([newItem])
+                        );
+                    }
+                };
+            });
+
+            const adminItems = localStorage.getItem("adminItems");
+            if (adminItems) {
+                const json = JSON.parse(adminItems);
+
+                const noItemsText = document.getElementById("no-items");
+
+                if (json.length) {
+                    noItemsText.style.display = "none";
+                } else {
+                    noItemsText.style.display = "inline";
+                }
+
+                for (const item of json) {
+                    addProduct(item.name, item.desc, item.price, item.image);
+                }
+            }
+
+            function deleteProduct(e) {
+                const prodName =
+                    e.target.parentElement.querySelector(
+                        ".prodd-name"
+                    ).textContent;
+                console.log(prodName);
+
+                const adminItems = localStorage.getItem("adminItems");
+                if (adminItems) {
+                    let json = JSON.parse(adminItems);
+
+                    json = json.filter((item) => item.name !== prodName);
+
+                    const noItemsText = document.getElementById("no-items");
+
+                    if (json.length) {
+                        noItemsText.style.display = "none";
+                    } else {
+                        noItemsText.style.display = "inline";
+                    }
+
+                    localStorage.setItem("adminItems", JSON.stringify(json));
+                }
+
+                e.target.parentElement.remove();
+            }
+
+            function addProduct(name, description, price, img) {
+                const noItemsText = document.getElementById("no-items");
+
+                noItemsText.style.display = "none";
+
+                const prod = document.createElement("div");
+                prod.classList.add("product");
+
+                const deleteButton = document.createElement("button");
+                deleteButton.classList.add("delete");
+                deleteButton.textContent = "Delete";
+                deleteButton.addEventListener("click", (e) => {
+                    deleteProduct(e);
+                });
+
+                prod.innerHTML = `
+                    <header>
+                        <img
+                            class="product-image"
+                            src="${img}"
+                        />
+                        <p class="prodd-name">${name}</p>
+                    </header>
+                    <p class="desc">
+                    ${description}
+                    </p>
+
+
+                `;
+
+                prod.append(deleteButton);
+
+                products.append(prod);
+            }
+        </script>
     </body>
 </html>
